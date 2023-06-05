@@ -14,22 +14,6 @@ function ONAS() {
 
   KONTAKT.classList.remove("contentClass");
   KONTAKT.classList.add("none");
-  const mysql = require("mysql");
-  const connection = mysql.createConnection({
-    host: "db4free.net",
-    user: "jk_root",
-    password: "uZnvM42367",
-    database: "test",
-  });
-  connection.connect((err) => {
-    console.log("jol");
-    if (err) throw err;
-    alert("Connected to the database!");
-  });
-  connection.end((err) => {
-    if (err) throw err;
-    console.log("Disconnected from the database!");
-  });
 }
 function KEBABY() {
   var ONAS = document.getElementById("ONAS");
