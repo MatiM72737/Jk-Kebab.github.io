@@ -14,28 +14,7 @@ function ONAS()
     ZAMOWIENIA.classList.add("none");
 
     KONTAKT.classList.remove("contentClass");
-    KONTAKT.classList.add("none");
-    var data = {
-        param1: 1,
-        param2: 53
-      };
-      
-      var xhr = new XMLHttpRequest();
-      xhr.open('get', 'php/api.php', true);
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      
-      xhr.onreadystatechange = function() {
-        alert(xhr.responseText);
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-          // Tutaj obsłuż otrzymane wyniki
-          alert(xhr.responseText);
-        }
-        else{
-            alert('error');
-        }
-      };
-      
-      xhr.send(JSON.stringify(data));      
+    KONTAKT.classList.add("none"); 
 }
 function KEBABY()
 {
