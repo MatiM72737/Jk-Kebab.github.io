@@ -47,6 +47,33 @@ body{
     justify-content: flex-start;
     border-bottom: 3px solid rgba(255, 102, 0, 0.7);
 }
+#KEBABY h1 {
+  text-align: center;
+}
+#KEBABY{
+  flex-direction: column;
+}
+#nizsze{
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+#mieso, #typ, #sos{
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+#mieso table{
+  width: 100%;
+}
+#typ table{
+  width: 100%;
+}
+#sos table{
+  width: 100%;
+}
 .content{
     width: 100%;
     height: 100%;
