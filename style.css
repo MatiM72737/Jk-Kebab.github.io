@@ -1,0 +1,122 @@
+@font-face {
+    font-family: "Kawoszeh";
+    src: url("fonts/kawoszeh.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "LatoLight";
+    src: url("fonts/LatoLight.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "LatoNormal";
+    src: url("fonts/LatoNormal.ttf") format("truetype");
+  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+  }
+body{
+    background-image:url(images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.container{
+    width: auto;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 5px solid rgba(255, 102, 0, 0.8);
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+}
+.gora{
+    flex: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-bottom: 3px solid rgba(255, 102, 0, 0.5);
+}
+.content{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-family: LatoNormal;
+    padding: 3%;
+    text-align: justify;
+}  
+.footer{
+    flex: auto;
+    align-self:flex-end;
+    width: 100%;
+    height: 1%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 3px solid rgba(255, 102, 0, 0.5);
+    color: white;
+    font-family: LatoLight;
+}  
+.footer-creators{
+  text-align: right;
+}
+  .gora ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    list-style-type: none;
+    margin: auto;
+  }
+  
+  .gora li {
+    float: left;
+    width: 100%;
+    height: auto;
+  }
+  
+  .gora li a {
+    display: block;
+    color: #d8dac9;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "Kawoszeh", sans-serif;
+  }
+  
+  .gora li a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .gora li a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+.contentClass{
+    padding: 1%;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+.none{
+    display: none;
+}
