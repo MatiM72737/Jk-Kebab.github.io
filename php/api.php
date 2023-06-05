@@ -1,37 +1,30 @@
 <?php
 
 // Połączenie z bazą danych
-$host = 'adres_hosta';
-$dbname = 'nazwa_bazy_danych';
-$username = 'użytkownik';
-$password = 'hasło';
+$host = 'db4free.net';
+$dbname = 'jk_kebab';
+$username = 'jk_root';
+$password = 'uZnvM42367';
+$table = "test";
+// Nawiązanie połączenia z bazą danych
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
-try {
-    $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Błąd połączenia z bazą danych: " . $e->getMessage());
+// Sprawdzenie połączenia
+if (mysqli_connect_errno()) {
+    die('Błąd połączenia z bazą danych: ' . mysqli_connect_error());
+}
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    // Sprawdź, czy żądanie zostało wysłane metodą POST
+  
+    // Odbierz zmienne przesłane metodą POST
+    $param1 = $_GET['param1'];
+    $param2 = $_GET['param2'];
+    $query = 'INSERT INTO '.$table.'(kolumna1, kolumna2) VALUES (4, 2)';
+    $result = mysqli_query($conn, $query);
+
+    echo($result);
 }
 
-// Sprawdzenie, czy otrzymano żądanie POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Odbierz dane przesłane z JavaScriptu
-    $data = json_decode(file_get_contents('php://input'), true);
-
-    // Wprowadź dane do bazy danych
-    $query = $db->prepare('INSERT INTO tabela (kolumna1, kolumna2) VALUES (:wartosc1, :wartosc2)');
-    $query->bindParam(':wartosc1', $data['parm1']);
-    $query->bindParam(':wartosc2', $data['parm2']);
-    $query->execute();
-
-    // Zwróć odpowiedź
-    $response = array('message' => 'Rekord został dodany do bazy danych');
-    header('Content-Type: application/json');
-    echo json_encode($response);
-} else {
-    // Nieobsługiwana metoda HTTP
-    http_response_code(405);
-    echo 'Nieobsługiwana metoda HTTP.';
-}
+mysqli_close($conn);
 
 ?>

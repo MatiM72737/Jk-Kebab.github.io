@@ -16,26 +16,26 @@ function ONAS()
     KONTAKT.classList.remove("contentClass");
     KONTAKT.classList.add("none");
     var data = {
-        param1: 'wartość1',
-        param2: 'wartość2'
+        param1: 1,
+        param2: 53
       };
       
-    fetch('php/api.php', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-    // Tutaj obsłuż otrzymane wyniki
-    alert(data);
-    })
-    .catch(error => {
-    // Tutaj obsłuż błędy
-    alert('Wystąpił błąd:'+ error);
-    });
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'php/api.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      
+      xhr.onreadystatechange = function() {
+        alert(xhr.responseText);
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          // Tutaj obsłuż otrzymane wyniki
+          alert(xhr.responseText);
+        }
+        else{
+            alert('error');
+        }
+      };
+      
+      xhr.send(JSON.stringify(data));      
 }
 function KEBABY()
 {
