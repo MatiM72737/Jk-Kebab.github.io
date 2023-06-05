@@ -66,3 +66,34 @@ function KONTAKT() {
   ONAS.classList.remove("contentClass");
   ONAS.classList.add("none");
 }
+function zamow() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "php/api.php?id_sos="+document.getElementById("wyborSosu").value+"&id_mieso="+document.getElementById("wyborMiesa").value+"&id_opakowanie="+document.getElementById("wyborTypu").value+"&adres="+document.getElementById("adres").value+"&nr_tel="+document.getElementById("nrTel").value, true);
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var response = xhr.responseText;
+        console.log(response);
+        openPopup("Brawo!", "Leci Do Ciebie Twój Kebab!\nDo zapłaty: " + response + "zł.");
+      } else {
+        console.error("Request failed with status: " + xhr.status);
+        openPopup("Request failed with status: ", xhr.status);
+      }
+    }
+  };
+  xhr.send();
+}
+function openPopup(h1, p) {
+  var popup = document.getElementById("popup");
+  var popupH1 = document.querySelector('.popupH1');
+  var popupP = document.querySelector('.popupP');
+  popupH1.innerHTML = h1;
+  popupP.innerHTML = p;
+  popup.style.display = "block";
+}
+
+function closePopup() {
+  var popup = document.getElementById("popup");
+  popup.style.display = "none";
+}

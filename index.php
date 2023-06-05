@@ -121,25 +121,87 @@
                             } else {
                                 echo "Brak danych o sosach.";
                             }
+                            $conn->close();
                             ?>
                         </div>
                     </div>
                 </div>
-                <div id="ZAMOWIENIA" class="none">Witamy na stronie JK Kebab - prawdziwej oazie smaku dla miłośników kebaba! Nasza restauracja położona jest w sercu miasta i specjalizuje się w serwowaniu autentycznych, świeżych i pysznych kebabów dla naszych gości.
-
-                    Na stronie JK Kebab znajdziesz wszystkie informacje, których potrzebujesz, aby poznać naszą historię, nasze menu i naszą pasję do kebabów. Przygotowaliśmy dla Ciebie wyjątkowy opis naszej restauracji, abyś mógł poczuć atmosferę i smak naszych dań zanim jeszcze do nas zawitasz.
-                    
-                    JK Kebab to miejsce, w którym starann634764585e3678635786789769
-                    Jeśli szukasz wygodnego sposobu na zamówienie, na naszej stronie znajdziesz także opcję zamówienia online. Możesz z łatwością przeglądać nasze menu, wybrać swoje ulubione dania i złożyć zamówienie bez wychodzenia z domu. Jesteśmy tu po to, aby zapewnić Ci wygodę i zaspokoić Twoje kulinarne pragnienia.
-                    
-                    Na stronie JK Kebab znajdziesz również informacje o naszych aktualnych promocjach, wydarzeniach specjalnych i nowościach. Nasza restauracja to miejsce, w którym zawsze dzieje się coś ciekawego, więc warto być na bieżąco.
-                    
-                    Nie czekaj dłużej! Przejdź na stronę JK Kebab i zanurz się w świecie wyśmienitego smaku kebabów. Czekamy na Ciebie z otwartymi rękami i pysznymi daniami, które zaspokoją Twoje wszystkie kulinarne zachcianki. Do zobaczenia w JK Kebab!
+                <div id="ZAMOWIENIA" class="none">
+                    <h1>Formularz zamówienia kebaba</h1>
+                    <form>
+                        <label for="wyborMiesa">Wybierz Mięso:</label>
+                        <select name="wyborMiesa" id="wyborMiesa">
+                            <?php
+                            $conn = mysqli_connect($host, $username, $password, $database);
+                            
+                            // Sprawdzenie połączenia
+                            if (!$conn) {
+                                die("Błąd połączenia: " . mysqli_connect_error());
+                            }
+                            $sql = "SELECT  id, nazwa  FROM miesa";
+                            $miesa = mysqli_query($conn, $sql);
+                            $sql = "SELECT  id, nazwa  FROM opakowania";
+                            $opakowania = mysqli_query($conn, $sql);
+                            $sql = "SELECT  id, nazwa  FROM sosy";
+                            $sosy = mysqli_query($conn, $sql);
+                            if ($miesa->num_rows > 0) {
+                                while ($row = $miesa->fetch_assoc()) {
+                                    $id = $row["id"];
+                                    $nazwa = $row["nazwa"];
+                                    echo "<option value=\"$id\">$nazwa</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                        <br>
+                        <label for="wyborTypu">Wybierz Typ:</label>
+                        <select name="wyborTypu" id="wyborTypu">
+                            <?php
+                            if ($opakowania->num_rows > 0) {
+                                while ($row = $opakowania->fetch_assoc()) {
+                                    $id = $row["id"];
+                                    $nazwa = $row["nazwa"];
+                                    echo "<option value=\"$id\">$nazwa</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                        <br>
+                        <label for="wyborSosu">Wybierz Sos:</label>
+                        <select name="wyborSosu" id="wyborSosu">
+                            <?php
+                            if ($sosy->num_rows > 0) {
+                                while ($row = $sosy->fetch_assoc()) {
+                                    $id = $row["id"];
+                                    $nazwa = $row["nazwa"];
+                                    echo "<option value=\"$id\">$nazwa</option>";
+                                }
+                            }
+                            $conn->close();
+                            ?>                        
+                        </select>
+                        <br>
+                        <label for="adres">Adres:</label>
+                        <input type="txt" name="adres" id="adres"></input>
+                        <br>
+                        <label for="nrTel">Numer telefonu:</label>
+                        <input type="numeric" name="nrTel" id="nrTel"></input>
+                        <br>
+                        <script src="js/script.js"></script>
+                        <p id="zamowBtn" onclick="zamow()">Zamów</p>
+                    </form>
                 </div>
                 <div id="KONTAKT" class="none">Witamy na stronie JK Kebab - prawdziwej oazie smaku dla miłośników kebaba! Nasza restauracja położona jest w sercu miasta i specjalizuje się w serwowaniu autentycznych, świeżych i pysznych kebabów dla naszych gości.
 
                     Na stronie JK Kebab znajdziesz wszystkie informacje, których potrzebujesz, aby poznać naszą historię, nasze menu i naszą pasję do kebabów. Przygotowaliśmy dla Ciebie wyjątkowy opis naszej restauracji, abyś mógł poczuć atmosferę i smak naszych dań zanim jeszcze do nas zawitasz.
                     fsafasfsagsagasgsagehjreusdhjfdku kebabów. Czekamy na Ciebie z otwartymi rękami i pysznymi daniami, które zaspokoją Twoje wszystkie kulinarne zachcianki. Do zobaczenia w JK Kebab!
+                </div>
+                    <div id="popup" class="popup" style="display: none;">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <h2 class = "popupH1">Gratulacje</h2>
+                        <p class = "popupP">This is the content of the popup window.</p>
+                    </div>
                 </div>
             </div>
             <div class="footer">
