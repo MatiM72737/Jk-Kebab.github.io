@@ -15,6 +15,27 @@ function ONAS()
 
     KONTAKT.classList.remove("contentClass");
     KONTAKT.classList.add("none");
+    var data = {
+        param1: 'wartość1',
+        param2: 'wartość2'
+      };
+      
+    fetch('php/api.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+    // Tutaj obsłuż otrzymane wyniki
+    alert(data);
+    })
+    .catch(error => {
+    // Tutaj obsłuż błędy
+    alert('Wystąpił błąd:'+ error);
+    });
 }
 function KEBABY()
 {
