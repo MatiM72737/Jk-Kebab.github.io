@@ -191,10 +191,16 @@
                         <p id="zamowBtn" onclick="zamow()">Zamów</p>
                     </form>
                 </div>
-                <div id="KONTAKT" class="none">Witamy na stronie JK Kebab - prawdziwej oazie smaku dla miłośników kebaba! Nasza restauracja położona jest w sercu miasta i specjalizuje się w serwowaniu autentycznych, świeżych i pysznych kebabów dla naszych gości.
+                <div id="KONTAKT" class="none">
+                    <h3>Kontakt z zespołem JK Kebab!</h3>
 
-                    Na stronie JK Kebab znajdziesz wszystkie informacje, których potrzebujesz, aby poznać naszą historię, nasze menu i naszą pasję do kebabów. Przygotowaliśmy dla Ciebie wyjątkowy opis naszej restauracji, abyś mógł poczuć atmosferę i smak naszych dań zanim jeszcze do nas zawitasz.
-                    fsafasfsagsagasgsagehjreusdhjfdku kebabów. Czekamy na Ciebie z otwartymi rękami i pysznymi daniami, które zaspokoją Twoje wszystkie kulinarne zachcianki. Do zobaczenia w JK Kebab!
+                    <p>Zapraszamy do niezwykłej podróży kulinarnej! Odkryj smaki Orientu w naszym wyjątkowym lokalu na <b>ul. Juliusza Słowackiego 2 w Rzeszowie</b>. JK Kebab to miejsce, gdzie spotyka się tradycyjna kuchnia bliskowschodnia z nowoczesnymi inspiracjami.</p><br>
+
+                    <p>Wyobraź sobie soczyste, aromatyczne kebaby, przygotowywane z najwyższą starannością przez naszych doświadczonych kucharzy. Nasze dania są nie tylko smaczne, ale również świeże i pełne wyjątkowych przypraw, które sprawią, że Twoje podniebienie odczuje prawdziwą ucztę smaków.</p><br>
+
+                    <p>A to jeszcze nie wszystko! Nasz lokal na ulicy Juliusza Słowackiego to także przytulne i stylowe miejsce, w którym możesz zrelaksować się w towarzystwie bliskich osób. Nasza obsługa z pasją dba o każdy szczegół, abyś czuł się wyjątkowo i mile widziany.</p><br>
+
+                    <p>Aby skosztować naszych wyjątkowych dań lub złożyć zamówienie na wynos, zadzwoń pod numer telefonu 777-666-420. Nasz zespół z przyjemnością odpowie na Twoje pytania i pomoże zorganizować wyjątkowe doświadczenie kulinarne.</p><br>
                 </div>
                     <div id="popup" class="popup" style="display: none;">
                     <div class="popup-content">
